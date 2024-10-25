@@ -27,7 +27,7 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
 RUN curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
 RUN ln -s /runner/kustomize /usr/local/sbin/kustomize
 
-COPY entrypoint.sh .
+COPY ./container-files/entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
 RUN useradd -m ghrunner -d /home/ghrunner  && chown -R ghrunner: /runner && chown -R ghrunner: /home/ghrunner
